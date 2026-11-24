@@ -26,15 +26,22 @@
 
 import LoginPage from '../pages/LoginPage';
 
+const loginAndVerify = (username, password) => {
+  LoginPage.visit();
+  LoginPage.login(username, password);
+  LoginPage.assertLoginSuccess();
+};
 
-Cypress.Commands.add(
-  'login',
-  (
-    username = Cypress.env('adminUsername'),
-    password = Cypress.env('adminPassword')
-  ) => {
-    LoginPage.visit();
-    LoginPage.login(username, password);
-    LoginPage.assertLoginSuccess();
+
+Cypress.Commands.add('login', (username, password) => {
+  if (username && password) {
+    loginAndVerify(username, password);
+    return;
   }
-);
+
+  cy.env(['adminUsername', 'adminPassword']).then(
+    ({ adminUsername, adminPassword }) => {
+      loginAndVerify(adminUsername, adminPassword);
+    }
+  );
+});
