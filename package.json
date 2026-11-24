@@ -1,0 +1,28 @@
+{
+  "name": "test-automatin-cypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:run:chrome": "cypress run --browser chrome"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pial-crypto/Test-Automation-Cypress.git"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Pial-crypto/Test-Automation-Cypress/issues"
+  },
+  "homepage": "https://github.com/Pial-crypto/Test-Automation-Cypress#readme",
+  "devDependencies": {
+    "cypress": "^16.3.0"
+  },
+  "allowScripts": {
+    "cypress@16.3.0": true
+  }
+}
